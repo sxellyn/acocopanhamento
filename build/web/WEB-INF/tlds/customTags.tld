@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>customtags</short-name>
+  <uri>http://www.ifpe.edu.br/recife/ifpetags</uri>
+  <!-- A validator verifies that the tags are used correctly at JSP
+          translation time. Validator entries look like this: 
+       <validator>
+           <validator-class>com.mycompany.TagLibValidator</validator-class>
+           <init-param>
+              <param-name>parameter</param-name>
+              <param-value>value</param-value>
+           </init-param>
+       </validator>
+    -->
+  <!-- A tag library can register Servlet Context event listeners in
+         case it needs to react to such events. Listener entries look
+         like this: 
+      <listener>
+          <listener-class>com.mycompany.TagLibListener</listener-class> 
+      </listener>
+    -->
+    
+  <tag>
+      <name>hello</name>
+      <body-content>empty</body-content>
+      <tag-class>br.edu.ifpe.recife.controllers.tags.TagHello</tag-class>
+  </tag>
+  <tag>
+      <name>emptyTag</name>
+      <body-content>scriptless</body-content>
+      <tag-class>br.edu.ifpe.recife.controllers.tags.TagNotEmpty</tag-class>
+      
+      <attribute>
+          <name>attr1</name>
+          <type>String</type>
+          <rtexprvalue>false</rtexprvalue>
+          <required>true</required>
+      </attribute>
+      
+      <attribute>
+          <name>data</name>
+          <type>java.util.Date</type>
+          <rtexprvalue>true</rtexprvalue>
+          <required>true</required>
+      </attribute>
+  </tag>
+  
+  <tag>
+      <name>carregaCondicao</name>
+      <body-content>empty</body-content>
+      <tag-class>br.edu.ifpe.recife.controllers.tags.CarregaCondicao</tag-class>
+  </tag>
+  
+  <tag>
+      <name>criaForm</name>
+      <body-content>empty</body-content>
+      <tag-class>br.edu.ifpe.recife.controllers.tags.TagViagi</tag-class>
+  
+      <attribute>
+          <name>classe</name>
+          <required>true</required>
+          <type>java.lang.Class</type>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      
+      <attribute>
+          <name>submitURL</name>
+          <required>true</required>
+          <type>String</type>
+      </attribute>
+  </tag>
+  
+  <tag>
+      <name>carregaPacientes</name>
+      <body-content>empty</body-content>
+      <tag-class>br.edu.ifpe.recife.controllers.tags.CarregaPacientesPorCRM</tag-class>
+      <attribute>
+          <name>crm</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+</taglib>
